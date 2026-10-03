@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hazop-agent"
+version = "0.1.0"
+description = "A single LLM agent that drafts HAZOP worksheets from a P&ID, plus a tool that evaluates them against a reference worksheet."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "NNOOHHDD" }]
+dependencies = [
+    "anthropic>=1.11,<2",
+    "openai>=3.24,<4",
+    "pillow>=12.3",
+    "pypdfium2>=5.13",
+    "python-dotenv>=1.2",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=2.3,<3"]
+dev = ["pytest>=9.1"]
+
+[project.scripts]
+hazop-agent = "hazop_agent.cli:main"
+hazop-eval = "hazop_eval.cli:main"
+hazop-agent-mcp = "hazop_agent.mcp_server:main"
+
+[tool.setuptools.packages.find]
+include = ["hazop_agent*", "hazop_eval*"]
+
+[tool.setuptools.package-data]
+hazop_agent = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

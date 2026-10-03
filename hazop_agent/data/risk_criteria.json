@@ -1,0 +1,35 @@
+{
+  "name": "Default 5x5 risk ranking (FI / SI / RI / SIL)",
+  "sources": {
+    "frequency_index": "Adapted (reworded) from the frequency index used by Ahn et al. (2019), Int. J. Hydrogen Energy 44(5):3185-3194, doi:10.1016/j.ijhydene.2018.12.065, which rates frequency per ship-year. Here 'installation' replaces 'ship'.",
+    "severity_index": "Adapted (reworded) from the severity index used by Ahn et al. (2019), same reference.",
+    "risk_index": "RI = FI x SI, as in Ahn et al. (2019).",
+    "sil_matrix": "Illustrative default written for this repository. It follows the general idea of a calibrated risk matrix in IEC 61511-3 (higher unmitigated risk -> higher required SIL) but it is NOT a normative table and it is NOT taken from Ahn et al. (2019). Replace it with your project's calibrated matrix."
+  },
+  "convention": "FI and SI describe the scenario BEFORE credit is taken for the listed safeguards (unmitigated), so that the ratings can be compared with a reference worksheet that uses the same convention.",
+  "frequency_index": [
+    {"value": 5, "label": "Frequent",   "description": "about once a year or more at one installation (F > 1/yr)"},
+    {"value": 4, "label": "Occasional", "description": "once in 1-10 years at one installation (1/10 yr < F < 1/yr)"},
+    {"value": 3, "label": "Rare",       "description": "once in 10-100 years at one installation (1/100 yr < F < 1/10 yr)"},
+    {"value": 2, "label": "Remote",     "description": "once in 100-1000 years at one installation (1/1000 yr < F < 1/100 yr)"},
+    {"value": 1, "label": "Improbable", "description": "not expected to occur (F < 1/1000 yr)"}
+  ],
+  "severity_index": [
+    {"value": 5, "label": "Catastrophic", "description": "multiple fatalities; uncontrolled environmental impact; loss up to about 200 MUSD"},
+    {"value": 4, "label": "Major",        "description": "single fatality or multiple severe injuries; severe environmental impact; loss up to about 20 MUSD"},
+    {"value": 3, "label": "Moderate",     "description": "multiple or severe injuries; major environmental impact; loss up to about 2 MUSD"},
+    {"value": 2, "label": "Significant",  "description": "single or minor injury; detectable environmental impact; loss up to about 200 kUSD"},
+    {"value": 1, "label": "Minor",        "description": "no injury; negligible environmental impact; loss up to about 20 kUSD"}
+  ],
+  "sil_values": {"0": "no SIL requirement (basic process control / alarms are adequate)", "1": "SIL 1", "2": "SIL 2", "3": "SIL 3", "4": "SIL 4"},
+  "sil_matrix": {
+    "layout": "rows = SI (1..5), columns = FI (1..5); value = suggested target SIL for an added safety function",
+    "SI": {
+      "1": [0, 0, 0, 0, 0],
+      "2": [0, 0, 0, 1, 1],
+      "3": [0, 0, 1, 1, 2],
+      "4": [0, 1, 1, 2, 2],
+      "5": [1, 1, 2, 3, 3]
+    }
+  }
+}

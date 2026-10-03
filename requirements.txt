@@ -1,0 +1,6 @@
+# Runtime dependencies (Python >= 3.10). Exact pins for reproducible runs.
+anthropic==1.11.0
+openai==3.24.0
+pillow==12.3.0
+pypdfium2==5.13.0
+python-dotenv==1.2.4

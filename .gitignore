@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+
+# default output folders of the command line tools
+/results/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

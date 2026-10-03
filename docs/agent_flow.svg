@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>hazop-agent: agent loop and evaluation flow</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4b5563"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.2; }
+      .agent { fill: #eef2ff; stroke: #6366f1; stroke-width: 1.4; }
+      .eval { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.4; }
+      .h { font-size: 15px; font-weight: 600; fill: #111827; }
+      .t { font-size: 12.5px; fill: #374151; }
+      .s { font-size: 11.5px; fill: #6b7280; }
+      .focus { font-size: 12.5px; fill: #9a3412; font-weight: 600; }
+      .line { stroke: #4b5563; stroke-width: 1.4; fill: none; }
+    </style>
+  </defs>
+  <rect width="960" height="500" fill="#ffffff"/>
+
+  <!-- inputs -->
+  <rect class="box" x="20" y="50" width="200" height="150" rx="8"/>
+  <text class="h" x="36" y="78">Inputs</text>
+  <text class="t" x="36" y="104">P&amp;ID (image or PDF)</text>
+  <text class="t" x="36" y="126">Node description</text>
+  <text class="t" x="36" y="148">Risk ranking scales</text>
+  <text class="s" x="36" y="168">FI / SI / RI / SIL (JSON)</text>
+
+  <!-- agent -->
+  <rect class="agent" x="270" y="50" width="220" height="150" rx="8"/>
+  <text class="h" x="286" y="78">LLM agent</text>
+  <text class="t" x="286" y="104">one tool-calling loop</text>
+  <text class="t" x="286" y="126">step limit, JSON run log</text>
+  <text class="s" x="286" y="160">anthropic / openai /</text>
+  <text class="s" x="286" y="178">claude_cli (local, optional)</text>
+
+  <!-- tools -->
+  <rect class="box" x="540" y="30" width="210" height="190" rx="8"/>
+  <text class="h" x="556" y="58">Tools</text>
+  <text class="t" x="556" y="84">view_pid</text>
+  <text class="t" x="556" y="106">get_node_description</text>
+  <text class="t" x="556" y="128">list_guidewords</text>
+  <text class="t" x="556" y="150">add_row</text>
+  <text class="s" x="618" y="150">(schema check)</text>
+  <text class="t" x="556" y="172">finish</text>
+  <text class="s" x="556" y="202">errors go back to the agent</text>
+
+  <!-- run output -->
+  <rect class="box" x="790" y="50" width="150" height="150" rx="8"/>
+  <text class="h" x="806" y="78">Run folder</text>
+  <text class="t" x="806" y="104">worksheet.json</text>
+  <text class="t" x="806" y="126">worksheet.csv</text>
+  <text class="t" x="806" y="148">log.json</text>
+
+  <path class="line" d="M220,125 L266,125" marker-end="url(#arr)"/>
+  <path class="line" d="M490,105 L536,105" marker-end="url(#arr)"/>
+  <path class="line" d="M540,145 L494,145" marker-end="url(#arr)"/>
+  <text class="s" x="498" y="98">call</text>
+  <text class="s" x="496" y="162">result</text>
+  <path class="line" d="M750,125 L786,125" marker-end="url(#arr)"/>
+
+  <!-- repeat -->
+  <path class="line" d="M865,200 L865,255 L520,255 L520,296" marker-end="url(#arr)"/>
+  <text class="t" x="680" y="248">repeat N times (independent runs)</text>
+
+  <!-- reference -->
+  <rect class="box" x="20" y="320" width="200" height="120" rx="8"/>
+  <text class="h" x="36" y="348">Reference</text>
+  <text class="t" x="36" y="374">worksheet (CSV) from</text>
+  <text class="t" x="36" y="394">a human HAZOP study</text>
+  <path class="line" d="M220,380 L266,380" marker-end="url(#arr)"/>
+
+  <!-- evaluation -->
+  <rect class="eval" x="270" y="300" width="480" height="180" rx="8"/>
+  <text class="h" x="286" y="328">hazop_eval</text>
+  <text class="t" x="286" y="354">1. Match each agent row to reference rows</text>
+  <text class="s" x="302" y="372">LLM decision with a stated reason; embedding similarity for comparison</text>
+  <text class="t" x="286" y="398">2. Recall, precision, FI / SI / RI agreement, deviation coverage,</text>
+  <text class="t" x="302" y="416">LLM judge score for cause-to-consequence logic</text>
+  <text class="t" x="286" y="442">3. Count how often each reference row is reproduced over N runs</text>
+  <text class="s" x="302" y="460">and group the rows that only the agent produced</text>
+
+  <path class="line" d="M750,390 L786,390" marker-end="url(#arr)"/>
+
+  <!-- report -->
+  <rect class="box" x="790" y="300" width="150" height="180" rx="8"/>
+  <text class="h" x="806" y="328">report.html</text>
+  <text class="s" x="806" y="346">+ metrics.json</text>
+  <text class="focus" x="806" y="374">Never reproduced</text>
+  <text class="s" x="806" y="390">expert focus</text>
+  <text class="focus" x="806" y="414">Agent-only rows</text>
+  <text class="s" x="806" y="430">expert review</text>
+  <text class="t" x="806" y="454">Frequently found</text>
+  <text class="s" x="806" y="470">generic, AI-assisted</text>
+</svg>

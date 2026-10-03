@@ -1,0 +1,35 @@
+{
+  "source": "Guidewords follow IEC 61882:2016 (Hazard and operability studies - Application guide). The parameter list and the synonyms are a practical selection for process plants and are not part of the standard.",
+  "deviation_format": "<Guideword> <Parameter> | <stream, line or equipment>",
+  "guidewords": [
+    {"name": "No",         "meaning": "Complete negation of the design intent",        "synonyms": ["none", "no", "loss of", "zero"]},
+    {"name": "More",       "meaning": "Quantitative increase",                          "synonyms": ["more", "high", "higher", "increased", "excess", "over"]},
+    {"name": "Less",       "meaning": "Quantitative decrease",                          "synonyms": ["less", "low", "lower", "reduced", "insufficient", "under"]},
+    {"name": "As well as", "meaning": "Qualitative modification / addition",            "synonyms": ["as well as", "additional"]},
+    {"name": "Part of",    "meaning": "Qualitative modification / decrease",            "synonyms": ["part of", "partial"]},
+    {"name": "Reverse",    "meaning": "Logical opposite of the design intent",          "synonyms": ["reverse", "back", "backflow", "reverse flow"]},
+    {"name": "Other than", "meaning": "Complete substitution",                          "synonyms": ["other than", "wrong", "instead of"]},
+    {"name": "Early",      "meaning": "Relative to clock time",                         "synonyms": ["early"]},
+    {"name": "Late",       "meaning": "Relative to clock time",                         "synonyms": ["late"]},
+    {"name": "Before",     "meaning": "Relating to order or sequence",                  "synonyms": ["before"]},
+    {"name": "After",      "meaning": "Relating to order or sequence",                  "synonyms": ["after"]}
+  ],
+  "parameters": [
+    {"name": "Flow",        "synonyms": ["flow", "flowrate", "flow rate", "supply"]},
+    {"name": "Pressure",    "synonyms": ["pressure"]},
+    {"name": "Temperature", "synonyms": ["temperature", "temp"]},
+    {"name": "Level",       "synonyms": ["level"]},
+    {"name": "Composition", "synonyms": ["composition", "concentration", "contamination", "impurity"]},
+    {"name": "Phase",       "synonyms": ["phase"]},
+    {"name": "Reaction",    "synonyms": ["reaction"]},
+    {"name": "Power",       "synonyms": ["power", "power output", "voltage", "current", "electric"]},
+    {"name": "Mixing",      "synonyms": ["mixing", "agitation"]},
+    {"name": "Time",        "synonyms": ["time", "duration", "sequence"]},
+    {"name": "Utility",     "synonyms": ["utility", "instrument air", "cooling water", "steam", "nitrogen"]},
+    {"name": "Operation",   "synonyms": ["start-up", "startup", "shutdown", "shut-down", "maintenance", "operation"]}
+  ],
+  "coverage_families": {
+    "note": "For coverage counting, 'No' is treated as the extreme case of 'Less' (e.g. 'No Flow' covers 'Less Flow').",
+    "No": "Less"
+  }
+}

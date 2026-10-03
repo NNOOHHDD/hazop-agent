@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "hazop-agent: a single LLM agent that drafts HAZOP worksheets from P&IDs, with an evaluation tool"
+type: software
+authors:
+  - alias: NNOOHHDD
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/NNOOHHDD/hazop-agent"
+keywords:
+  - HAZOP
+  - process safety
+  - P&ID
+  - LLM agent
+  - evaluation
+references:
+  - type: article
+    title: "Safety integrity level (SIL) determination for a maritime fuel cell system as electric propulsion in accordance with IEC 61511"
+    authors:
+      - family-names: Ahn
+        given-names: J.
+      - family-names: Noh
+        given-names: Y.
+      - family-names: Joung
+        given-names: T.
+      - family-names: Lim
+        given-names: Y.
+      - family-names: Kim
+        given-names: J.
+      - family-names: Seo
+        given-names: Y.
+      - family-names: Chang
+        given-names: D.
+    journal: "International Journal of Hydrogen Energy"
+    volume: 44
+    issue: "5"
+    start: 3185
+    end: 3194
+    year: 2019
+    doi: "10.1016/j.ijhydene.2018.12.065"
+    notes: >-
+      Source of the MCFC example. examples/mcfc/pid.jpg is reproduced from this article,
+      © 2019 Hydrogen Energy Publications LLC, published by Elsevier, with permission of the
+      corresponding author. examples/mcfc/reference_worksheet.csv is restructured from its HAZOP table.
+      The FI / SI scales in hazop_agent/data/risk_criteria.json are adapted from it.
