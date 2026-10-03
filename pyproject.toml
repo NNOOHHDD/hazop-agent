@@ -36,3 +36,4 @@ hazop_agent = ["data/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
