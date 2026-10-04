@@ -331,12 +331,21 @@ class ClaudeCLILLM(LLM):
         env.pop("CLAUDECODE", None)       # allow launching from inside a Claude Code terminal
         proc = subprocess.run(cmd, input=prompt, capture_output=True, text=True, encoding="utf-8",
                               errors="replace", env=env, cwd=self.workdir, timeout=self.timeout)
-        data = extract_json(proc.stdout or "")
+        data = self.parse_envelope(proc.stdout or "")
         if not isinstance(data, dict) or "result" not in data:
             raise RuntimeError(f"claude CLI failed (exit {proc.returncode}): {(proc.stderr or proc.stdout)[-400:]}")
         if data.get("is_error"):
             raise RuntimeError(f"claude CLI error: {str(data.get('result'))[:300]}")
         return self.parse_reply(str(data.get("result") or ""), tools, data)
+
+    @staticmethod
+    def parse_envelope(stdout: str) -> Any:
+        """The `--output-format json` envelope. Parse it whole first: extract_json would pick a
+        ```json fence inside the `result` string instead of the envelope around it."""
+        try:
+            return json.loads(stdout.strip())
+        except ValueError:
+            return extract_json(stdout)
 
     def parse_reply(self, result: str, tools, data: dict | None = None) -> LLMResponse:
         u = (data or {}).get("usage") or {}

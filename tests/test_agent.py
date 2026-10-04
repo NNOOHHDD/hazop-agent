@@ -77,6 +77,10 @@ def test_claude_cli_protocol(monkeypatch, tmp_path):
     r = cli.parse_reply('{"text": "ok", "tool_calls": [{"name": "finish", "input": {"summary": "s"}}]}', TOOL_SPECS,
                         {"usage": {"input_tokens": 10, "output_tokens": 5}})
     assert r.stop_reason == "tool_use" and r.tool_calls[0]["name"] == "finish" and r.usage["output_tokens"] == 5
+    # a fenced reply inside the envelope's result must not be mistaken for the envelope
+    reply = '```json\n{"matches": []}\n```'
+    env = cli.parse_envelope(json.dumps({"type": "result", "is_error": False, "result": reply}))
+    assert env["result"] == reply
 
 
 def test_model_env_only_applies_to_its_provider(monkeypatch):
