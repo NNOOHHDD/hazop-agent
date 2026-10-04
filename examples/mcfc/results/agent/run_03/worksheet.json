@@ -1,0 +1,464 @@
+{
+  "meta": {
+    "mode": "agent",
+    "node": "MCFC stack",
+    "pid": "examples/mcfc/pid.jpg",
+    "model": "claude_cli:opus",
+    "status": "finished",
+    "steps": 3,
+    "max_steps": 60,
+    "rows": 25,
+    "rejected_rows": 0,
+    "summary": "The HAZOP of node 'MCFC stack' produced 25 scenarios, all checked against the P&ID. Flow deviations cover the Air inlet (LCV-200/FIT-110: no, less and more), the Feed inlet (LCV-100/FIT-100: no and more flow, low steam-to-carbon ratio, sulphur contamination, liquid water carry-over) and the H2 BOG inlet (LCV-300/FIT-120: less and more). Stack temperature was covered for high (electrolyte loss, seal failure, fire) and low (electrolyte freezing, matrix cracking). Pressure scenarios are a blocked outlet from spurious closure of BV-400/BV-410 (SI 5, SIL 2) and anode-cathode differential pressure. Other flow scenarios are vent release through BV-160/PSV-160, reverse flow at the outlets and inlets, and external stack leaks into the enclosure (SI 5, SIL 2). DC power deviations are overload, loss of propulsion power, reverse current and cell voltage deviation (VZA-100/110, IIC-400). The remaining scenarios are low cathode CO2, fuel admitted before the stack is purged at start-up, and loss of instrument air or control power. Main recommendations: independent trips for high-high stack temperature, low air flow and high pressure that isolate fuel through LCV-100/LCV-300; a new stack pressure transmitter and an anode-cathode differential pressure transmitter; H2/CO gas detection and ventilation of the enclosure; verifying the PSV-160 sizing, the fail positions of the LCVs and the vent location; non-return valves; a separate water/NG ratio measurement; start-up permissives with an inert purge; and reverse-current protection plus load limiting on the DC output.",
+    "usage": {
+      "input_tokens": 42807,
+      "output_tokens": 12954
+    },
+    "started": "2026-10-03T09:47:35",
+    "elapsed_s": 125.8,
+    "criteria": "Default 5x5 risk ranking (FI / SI / RI / SIL)"
+  },
+  "rows": [
+    {
+      "node": "MCFC stack",
+      "deviation": "No Flow | Air inlet to cathode",
+      "causes": "Air compressor trip or LCV-200 fails closed (actuator/signal fault from IIC-400)",
+      "consequences": "No O2/CO2 to cathode; cell voltage collapses and cells reverse; Ni anode/cathode damage. Unreacted fuel leaves via the anode outlet, and propulsion power is lost.",
+      "safeguards": [
+        "FIT-110/FI-110 air flow indication",
+        "PIT-110/PI-110 pressure indication",
+        "VZA-100 low cell voltage alarm",
+        "BPCS air flow control via IIC-400/LCV-200"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Provide low-low air flow (FIT-110) trip that isolates fuel via LCV-100/LCV-300 and initiates controlled stack shutdown, independent of BPCS"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Less Flow | Air inlet to cathode",
+      "causes": "Partial blockage of the air filter/line, LCV-200 throttled by a control fault, or compressor degradation",
+      "consequences": "Cathode air is the main stack coolant, so the stack overheats with local hot spots above 700 °C. This causes electrolyte evaporation/loss, corrosion and wet-seal damage, shortens stack life and could lead to gas leakage.",
+      "safeguards": [
+        "FIT-110/FI-110",
+        "TE-200/TE-210 with TT-410 stack temperature indication",
+        "TE-310/TI-310 cathode outlet temperature",
+        "BPCS stack temperature control"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Add low air flow alarm on FIT-110 and high stack temperature alarm on TT-410"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Flow | Air inlet to cathode",
+      "causes": "LCV-200 fails open or IIC-400 control fault",
+      "consequences": "Stack is over-cooled and large thermal gradients develop. If the temperature falls below about 490 °C the carbonate electrolyte freezes and the matrix cracks, leading to gas crossover and permanent stack damage.",
+      "safeguards": [
+        "FIT-110/FI-110",
+        "TE-200/TE-210, TT-410",
+        "BPCS temperature and air flow control"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Add low stack temperature alarm and high air flow alarm with automatic air flow limitation"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "No Flow | Feed (natural gas + water) to reformer",
+      "causes": "NG compressor or water pump trip, or LCV-100 fails closed",
+      "consequences": "Anode is starved of H2/CO and the Ni anode oxidises, causing voltage collapse and loss of power. If H2 BOG continues, the endothermic reforming heat sink is lost and the stack overheats.",
+      "safeguards": [
+        "FIT-100/FI-100",
+        "PIT-100/PI-100",
+        "VZA-100 low voltage alarm",
+        "TT-410 stack temperature"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Interlock low feed flow (FIT-100) to reduce DC load via IIC-400 and limit H2 BOG via LCV-300"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Flow | Feed (natural gas + water) to reformer",
+      "causes": "LCV-100 fails open or flow control fault",
+      "consequences": "Excess endothermic reforming cools the stack locally (risk of electrolyte freezing at the inlet). Excess unreacted CH4/H2 goes to the anode outlet and downstream, and fuel is wasted.",
+      "safeguards": [
+        "FIT-100/FI-100",
+        "TE-200/TE-210, TT-410",
+        "TE-300/TI-300 anode outlet temperature"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Add high feed flow alarm on FIT-100"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Less Composition | Feed steam-to-carbon ratio",
+      "causes": "Water pump failure/low water flow while NG flow continues (FIT-100 measures only total feed)",
+      "consequences": "Carbon is deposited on the reformer catalyst and anode. This blocks gas channels, raises pressure drop, deactivates the catalyst and causes irreversible stack damage.",
+      "safeguards": [
+        "FIT-100/FI-100 total feed flow"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Provide separate NG and water flow measurement with a low steam-to-carbon ratio alarm and trip of NG supply"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Other than Composition | Feed (sulphur/contaminants in natural gas)",
+      "causes": "Desulphurisation upstream fails or is saturated, or the NG supply is off-spec",
+      "consequences": "Sulphur poisons the reformer catalyst and Ni anode, causing progressive voltage loss and stack degradation.",
+      "safeguards": [
+        "VE-100/VZA-100 cell voltage monitoring"
+      ],
+      "FI": 3,
+      "SI": 2,
+      "RI": 6,
+      "SIL": 0,
+      "recommendations": [
+        "Provide sulphur breakthrough monitoring/periodic analysis downstream of the desulphuriser"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Other than Phase | Feed (liquid water carry-over)",
+      "causes": "Upstream vaporiser/heat exchanger failure lets liquid water reach the stack inlet",
+      "consequences": "Liquid water hits the 650 °C reformer, causing thermal shock, cracking of catalyst/plates and local quenching of cells.",
+      "safeguards": [
+        "TE-100/TI-100 feed temperature"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Add low feed temperature alarm/trip on TE-100 to close LCV-100"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Less Flow | H2 BOG to anode",
+      "causes": "BOG compressor trip, low boil-off rate or LCV-300 fails closed",
+      "consequences": "Fuel to the anode drops and fuel utilisation rises. Power output falls, the propulsion load cannot be met, and the anode is at risk of local fuel starvation.",
+      "safeguards": [
+        "FIT-120/FI-120",
+        "PIT-120/PI-120",
+        "IIC-400 current control",
+        "VZA-100 low voltage alarm"
+      ],
+      "FI": 4,
+      "SI": 2,
+      "RI": 8,
+      "SIL": 1,
+      "recommendations": []
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Flow | H2 BOG to anode",
+      "causes": "LCV-300 fails open, IIC-400 fault, or BOG surge from the cargo tanks",
+      "consequences": "Excess H2 oxidation without the matching endothermic reforming leads to stack overheating. Excess unburnt H2 goes to the anode outlet, creating a flammable atmosphere downstream.",
+      "safeguards": [
+        "FIT-120/FI-120",
+        "TE-200/TE-210, TT-410",
+        "TE-300/TI-300"
+      ],
+      "FI": 3,
+      "SI": 4,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Provide high H2 BOG flow alarm and high-high stack temperature trip closing LCV-300 (independent of BPCS)"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Temperature | Stack (anode/cathode)",
+      "causes": "BPCS temperature control failure, TE-200/TE-210 reading falsely low, loss of reforming heat sink, high current or low cathode air",
+      "consequences": "Above about 700 °C the electrolyte evaporates and wet seals fail. Hot H2/CO can leak into the enclosure with fire/explosion risk and severe stack damage.",
+      "safeguards": [
+        "TE-200/TI-200, TE-210/TI-210, TT-410",
+        "TE-300/TI-300, TE-310/TI-310",
+        "BPCS stack temperature control"
+      ],
+      "FI": 3,
+      "SI": 4,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Implement SIL 1 high-high stack temperature trip (voted TE-200/TE-210) closing LCV-100/LCV-300 and reducing load",
+        "Provide TE deviation alarm between TE-200 and TE-210"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Less Temperature | Stack (anode/cathode)",
+      "causes": "Excess air or feed flow, prolonged low load/idle, or low inlet temperatures (TE-100/110/120)",
+      "consequences": "Carbonate electrolyte solidifies and the matrix cracks, causing gas crossover between anode and cathode and permanent stack loss.",
+      "safeguards": [
+        "TE-200/TE-210, TT-410",
+        "TE-100/TE-110/TE-120 inlet temperature indication"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Add low stack temperature alarm with automatic load/air adjustment and a hot-standby heating procedure"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Pressure | Stack (blocked outlet)",
+      "causes": "BV-400 or BV-410 closes spuriously (fail-closed on signal/air loss) while inlet flows continue",
+      "consequences": "Stack overpressure causes wet-seal blow-out, anode/cathode gas crossover and mixing of H2/CO with air at 650 °C. This can cause internal combustion, fire or explosion and release from the stack.",
+      "safeguards": [
+        "PSV-160 to Vent Out",
+        "BV-160 vent valve (fail open)",
+        "PIT-100/PIT-110/PIT-120 inlet pressure indication"
+      ],
+      "FI": 3,
+      "SI": 5,
+      "RI": 15,
+      "SIL": 2,
+      "recommendations": [
+        "Interlock closure of BV-400/BV-410 to close LCV-100/LCV-200/LCV-300 and open BV-160",
+        "Add stack pressure transmitter with high-high pressure trip (SIL 2 assessment)",
+        "Verify PSV-160 sizing for blocked-outlet case"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Other than Pressure | Anode-cathode differential pressure",
+      "causes": "Imbalance between air control (LCV-200) and fuel control (LCV-100/LCV-300), or sudden loss of air pressure",
+      "consequences": "Wet seal/electrolyte matrix breakthrough lets fuel cross into the cathode (or air into the anode). This causes direct combustion, hot spots, stack fire and permanent damage.",
+      "safeguards": [
+        "PIT-110, PIT-100, PIT-120 inlet pressure indication",
+        "BPCS pressure control"
+      ],
+      "FI": 3,
+      "SI": 4,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Install anode-cathode differential pressure transmitter with alarm and trip"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Flow | Vent line (BV-160 / PSV-160)",
+      "causes": "BV-160 opens spuriously (fail open on signal/air loss), or PSV-160 lifts/passes",
+      "consequences": "Hot H2/CO-rich gas is released to Vent Out, forming a flammable/toxic cloud on deck with possible ignition, and stack pressure is lost.",
+      "safeguards": [
+        "PSV-160 set pressure",
+        "Vent Out routed outside the skid"
+      ],
+      "FI": 3,
+      "SI": 4,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Confirm vent outlet is located in a safe area per class rules, with dispersion study",
+        "Add position indication/alarm on BV-160"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Reverse Flow | Anode Out / Cathode Out",
+      "causes": "Stack pressure drops during shutdown/trip while the downstream header remains pressurised, or BV-400/BV-410 is passing",
+      "consequences": "Air/exhaust enters the anode, oxidising the Ni anode. A flammable mixture may form inside the stack.",
+      "safeguards": [
+        "BV-400 and BV-410 fail-closed valves"
+      ],
+      "FI": 2,
+      "SI": 4,
+      "RI": 8,
+      "SIL": 1,
+      "recommendations": [
+        "Install non-return valves on anode and cathode outlets",
+        "Provide inert gas purge on shutdown"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Reverse Flow | Air / Feed / H2 BOG inlets",
+      "causes": "Loss of upstream compressor/supply pressure while the stack is still pressurised",
+      "consequences": "Hot fuel gas flows back into the air line (or air into the fuel lines), forming a flammable mixture upstream with fire/explosion risk.",
+      "safeguards": [
+        "PIT-110, PIT-100, PIT-120 pressure indication"
+      ],
+      "FI": 2,
+      "SI": 4,
+      "RI": 8,
+      "SIL": 1,
+      "recommendations": [
+        "Install non-return valves upstream of LCV-100, LCV-200 and LCV-300",
+        "Low inlet pressure trip closing the respective LCV"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Other than Flow | Stack external leak",
+      "causes": "Wet seal degradation, corrosion, thermal cycling or ship motion/vibration",
+      "consequences": "H2/CO released into the fuel cell room causes fire/explosion and toxic CO exposure to crew.",
+      "safeguards": [],
+      "FI": 3,
+      "SI": 5,
+      "RI": 15,
+      "SIL": 2,
+      "recommendations": [
+        "Provide H2 and CO gas detection in the stack enclosure with ESD isolating LCV-100/LCV-300",
+        "Provide mechanical ventilation of the enclosure with monitoring per class rules"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "More Power | DC-Power output",
+      "causes": "Propulsion overload demand, short circuit downstream, or IIC-400 current control fault",
+      "consequences": "High current means high fuel utilisation, causing fuel starvation, cell reversal, local overheating and anode oxidation.",
+      "safeguards": [
+        "IE-300/II-300/IR-300 current indication and recording",
+        "IT-400/IIC-400 current control",
+        "VE-100/VZA-100 low voltage alarm"
+      ],
+      "FI": 4,
+      "SI": 3,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Provide overcurrent protection and load-limiting by power management system",
+        "Interlock current limit to available fuel flow (FIT-100/FIT-120)"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "No Power | DC-Power output",
+      "causes": "Load disconnection/breaker trip, or stack trip",
+      "consequences": "The vessel loses propulsion, with risk of collision/grounding. At open circuit the cell voltage is high, no reaction heat is produced, unreacted fuel goes to the anode outlet and the stack cools.",
+      "safeguards": [
+        "VE-110/VZA-110 high voltage alarm",
+        "IIC-400 adjusting LCV-100/200/300",
+        "Multiple stack modules in plant"
+      ],
+      "FI": 3,
+      "SI": 4,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Ensure power management reduces fuel automatically on load loss",
+        "Verify redundancy of propulsion power (other modules/battery) per class requirements"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Reverse Power | DC-Power output",
+      "causes": "Back-feed from battery/other parallel modules into a weak or tripped stack",
+      "consequences": "Cells are driven in reverse (electrolysis), causing anode/cathode corrosion and stack damage.",
+      "safeguards": [
+        "IE-300/II-300 current indication"
+      ],
+      "FI": 2,
+      "SI": 3,
+      "RI": 6,
+      "SIL": 0,
+      "recommendations": [
+        "Provide blocking diode/reverse current protection on DC output"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Other than Power | Cell voltage deviation",
+      "causes": "Individual cell degradation, local fuel starvation or flow maldistribution",
+      "consequences": "Weak cells reverse, causing local hot spots, electrolyte loss and possible seal failure leading to a gas leak.",
+      "safeguards": [
+        "VE-100/VZA-100 low voltage alarm",
+        "VE-110/VZA-110 high voltage alarm",
+        "BPCS cell voltage deviation monitoring"
+      ],
+      "FI": 3,
+      "SI": 3,
+      "RI": 9,
+      "SIL": 1,
+      "recommendations": [
+        "Provide automatic load reduction on high cell voltage deviation"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Less Composition | CO2 at cathode",
+      "causes": "High share of H2 BOG relative to natural gas feed (little CO2 in anode exhaust recycled to cathode)",
+      "consequences": "Carbonate ions are not regenerated, so electrolyte is depleted, cell voltage drops and performance degrades.",
+      "safeguards": [
+        "FIT-100 and FIT-120 flow indication",
+        "VZA-100 low voltage alarm"
+      ],
+      "FI": 3,
+      "SI": 2,
+      "RI": 6,
+      "SIL": 0,
+      "recommendations": [
+        "Define minimum NG/BOG ratio in control philosophy, or CO2 make-up"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "Before Operation | Start-up fuel admission",
+      "causes": "Fuel (LCV-100/LCV-300) admitted before the stack is purged and heated, due to operator error or sequence fault",
+      "consequences": "Residual air and fuel form a flammable mixture inside the hot stack, leading to internal explosion and stack destruction.",
+      "safeguards": [
+        "BPCS start-up control",
+        "TE-200/TE-210 temperature indication"
+      ],
+      "FI": 2,
+      "SI": 5,
+      "RI": 10,
+      "SIL": 1,
+      "recommendations": [
+        "Implement start-up permissives (purge complete, stack temperature) on LCV-100/LCV-300",
+        "Provide inert gas purge system and written start-up procedure"
+      ]
+    },
+    {
+      "node": "MCFC stack",
+      "deviation": "No Utility | Instrument air / control power",
+      "causes": "Loss of instrument air or control power to the valves",
+      "consequences": "BV-400 and BV-410 close and BV-160 opens. If LCV-100/LCV-200/LCV-300 do not fail closed, fuel continues into the stack and is vented through Vent Out, giving a flammable release, possible overpressure and loss of propulsion.",
+      "safeguards": [
+        "BV-160 fail-open vent",
+        "PSV-160"
+      ],
+      "FI": 3,
+      "SI": 4,
+      "RI": 12,
+      "SIL": 1,
+      "recommendations": [
+        "Define and verify fail-closed position of LCV-100 and LCV-300 (fuel) and appropriate fail position of LCV-200",
+        "Provide UPS for BPCS and stack monitoring"
+      ]
+    }
+  ]
+}

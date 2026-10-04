@@ -111,7 +111,13 @@ python -m hazop_eval --reference examples/mcfc/reference_worksheet.csv \
 open examples/mcfc/results/eval/report.html      # macOS; use xdg-open on Linux
 ```
 
-Add `--mode single --out examples/mcfc/results/single` to the first command for the single-call comparison. No real-model results are committed yet; see [examples/mcfc/results/README.md](examples/mcfc/results/README.md).
+Add `--mode single --out examples/mcfc/results/single` to the first command for the single-call comparison.
+
+### Example result
+
+Three runs with the `claude_cli` provider (model `opus`, 2026-10-03) are committed in [examples/mcfc/results/](examples/mcfc/results/). In this small-sample example, recall was 0.47 and precision 0.46 (means over 3 runs). Of the 29 reference rows, 13 were reproduced frequently, 4 occasionally and 12 never, and the agent proposed 35 scenarios of its own. Run conditions, risk-ranking agreement and caveats are in [examples/mcfc/results/README.md](examples/mcfc/results/README.md).
+
+![First screen of the evaluation report](docs/report_example.png)
 
 ## MCP server
 

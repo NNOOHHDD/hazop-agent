@@ -1,0 +1,410 @@
+{
+  "run_01": {
+    "primary": [
+      {
+        "ai_id": "run_01#1",
+        "ref_id": "R01",
+        "reason": "Both rows describe loss of air supply to the cathode through an LCV-200 fault, and both lead to loss of stack cooling; 'Less Flow' is compatible with 'No Flow'."
+      },
+      {
+        "ai_id": "run_01#1",
+        "ref_id": "R03",
+        "reason": "Both rows have loss of air through an LCV-200 fault, and the scenario's lack of O2/CO2 at the cathode, voltage collapse and cell reversal amount to an unstable cathode reaction."
+      },
+      {
+        "ai_id": "run_01#1",
+        "ref_id": "R19",
+        "reason": "This row has the same cause (low air flow from an LCV-200 fault) and the same consequence (unstable cathode reaction), and the scenario itself describes local overheating, so the High Temperature label is consistent."
+      },
+      {
+        "ai_id": "run_01#2",
+        "ref_id": "R01",
+        "reason": "Both describe reduced air flow to the cathode from an LCV-200 fault or a degraded or blocked air supply, and the review scenario's loss of cooling leading to stack temperature rise contains R01's 'Stack cooling lost'."
+      },
+      {
+        "ai_id": "run_01#3",
+        "ref_id": "R08",
+        "reason": "Same initiating cause, excess air flow from an LCV-200 fault (fails open), with compatible More Flow direction; the row records no consequence, so it matches on cause alone."
+      },
+      {
+        "ai_id": "run_01#4",
+        "ref_id": "R04",
+        "reason": "Both rows describe loss of feed flow through an LCV-100 fault, and the review scenario's heat-balance upset from lost endothermic reforming is the same consequence as the reference's loss of stack cooling."
+      },
+      {
+        "ai_id": "run_01#4",
+        "ref_id": "R06",
+        "reason": "Both rows describe loss of feed through an LCV-100 fault, and the review scenario's anode fuel starvation, with voltage reversal and Ni anode oxidation, is a disrupted anode reaction, which covers the reference's unstable anode reaction."
+      },
+      {
+        "ai_id": "run_01#5",
+        "ref_id": "R17",
+        "reason": "Both rows have the same cause, excess feed from an LCV-100 fault (failing open), and both lead to fire inside the stack, which matches the review's crossover and local combustion."
+      },
+      {
+        "ai_id": "run_01#8",
+        "ref_id": "R10",
+        "reason": "Same cause (excess H2 boil-off gas from an LCV-300 fault, i.e. the valve failing open) leading to fire or explosion, which the scenario's consequences include."
+      },
+      {
+        "ai_id": "run_01#8",
+        "ref_id": "R16",
+        "reason": "Same cause (excess H2 boil-off gas from an LCV-300 fault) with a fire or explosion consequence, consistent with the scenario's local combustion, hot spots and fire risk, despite the different deviation label."
+      },
+      {
+        "ai_id": "run_01#9",
+        "ref_id": "R07",
+        "reason": "Both rows describe loss of H2 boil-off gas supply through an LCV-300 fault, causing reduced flow to the anode and a drop in stack/cell voltage."
+      },
+      {
+        "ai_id": "run_01#11",
+        "ref_id": "R18",
+        "reason": "Excess feed from an LCV-100 fault is a loss of air/fuel heat balance that overheats the stack, and evaporating carbonate electrolyte is one of the scenario's stated consequences."
+      },
+      {
+        "ai_id": "run_01#11",
+        "ref_id": "R17",
+        "reason": "Excess feed from an LCV-100 fault upsets the air/fuel heat balance and raises stack temperature, leading to fire, which matches the scenario's ignited H2/CO leak."
+      },
+      {
+        "ai_id": "run_01#11",
+        "ref_id": "R20",
+        "reason": "Low air flow (blocked or leaking line, or LCV-200 fault) loses the air/fuel heat balance and overheats the stack, leading to fire as in the scenario."
+      },
+      {
+        "ai_id": "run_01#11",
+        "ref_id": "R16",
+        "reason": "Excess H2 boil-off fuel from an LCV-300 fault is an air/fuel heat-balance loss that overheats the stack, leading to fire as in the scenario."
+      },
+      {
+        "ai_id": "run_01#12",
+        "ref_id": "R08",
+        "reason": "R08's cause, excess air from an LCV-200 fault, is the scenario's 'excess air flow' cause, and R08 records no consequence, so it matches on the cause alone."
+      },
+      {
+        "ai_id": "run_01#17",
+        "ref_id": "R29",
+        "reason": "Both describe excess stack power caused by excessive cell current, as when current control fails or demand exceeds capacity, which drives the stack into overheating and runaway."
+      }
+    ],
+    "embedding": [
+      {
+        "ai_id": "run_01#15",
+        "ref_id": "R23",
+        "score": 0.5864
+      },
+      {
+        "ai_id": "run_01#15",
+        "ref_id": "R24",
+        "score": 0.5716
+      },
+      {
+        "ai_id": "run_01#17",
+        "ref_id": "R27",
+        "score": 0.3317
+      },
+      {
+        "ai_id": "run_01#17",
+        "ref_id": "R29",
+        "score": 0.3581
+      }
+    ]
+  },
+  "run_02": {
+    "primary": [
+      {
+        "ai_id": "run_02#1",
+        "ref_id": "R01",
+        "reason": "Both describe loss of air supply through an LCV-200 fault, and the scenario says air no longer cools the stack, which matches the recorded loss of stack cooling."
+      },
+      {
+        "ai_id": "run_02#1",
+        "ref_id": "R02",
+        "reason": "Both describe loss of air supply through an LCV-200 fault, and the scenario's H2 crossover burning inside the stack matches the recorded fire or explosion."
+      },
+      {
+        "ai_id": "run_02#1",
+        "ref_id": "R03",
+        "reason": "Both describe loss of air supply through an LCV-200 fault, and the scenario's lack of O2/CO2, voltage collapse and cell reversal match the recorded unstable cathode reaction."
+      },
+      {
+        "ai_id": "run_02#1",
+        "ref_id": "R19",
+        "reason": "Both describe low air flow from an LCV-200 fault, and the scenario's cathode starvation and cell reversal match the recorded unstable cathode reaction; the High Temperature label fits the scenario's hot spots."
+      },
+      {
+        "ai_id": "run_02#1",
+        "ref_id": "R20",
+        "reason": "Both describe low air flow from an LCV-200 fault, and the scenario's hot spots and H2 burning inside the stack match the recorded fire or explosion."
+      },
+      {
+        "ai_id": "run_02#2",
+        "ref_id": "R01",
+        "reason": "Both rows describe low air flow from a blocked air path or an LCV-200 fault, and both lead to reduced or lost cooling of the stack."
+      },
+      {
+        "ai_id": "run_02#2",
+        "ref_id": "R03",
+        "reason": "Both rows describe low air flow from a blockage or an LCV-200 fault, starving the cathode of O2/CO2 so that the cathode reaction degrades and cell voltage drops."
+      },
+      {
+        "ai_id": "run_02#2",
+        "ref_id": "R19",
+        "reason": "Both rows describe low air flow from a blockage or an LCV-200 fault, which raises stack temperature and destabilises the cathode reaction; the scenario under review includes both effects."
+      },
+      {
+        "ai_id": "run_02#3",
+        "ref_id": "R08",
+        "reason": "Same More Flow deviation on cathode air caused by an LCV-200 fault (excess air), and with no consequence recorded the row matches on cause alone."
+      },
+      {
+        "ai_id": "run_02#4",
+        "ref_id": "R05",
+        "reason": "Both describe loss of feed through an LCV-100 fault or a supply failure, and the reviewed scenario's loss of propulsion power covers the drop in stack power output."
+      },
+      {
+        "ai_id": "run_02#4",
+        "ref_id": "R06",
+        "reason": "Both describe loss of feed through an LCV-100 fault or a supply failure, and the reviewed scenario's anode fuel starvation, cell reversal and Ni oxidation is a specific case of an unstable anode reaction."
+      },
+      {
+        "ai_id": "run_02#8",
+        "ref_id": "R10",
+        "reason": "Same cause: excess H2 boil-off gas flow from an LCV-300 fault. The reference consequence, fire or explosion, is the same kind of outcome as the overheating, seal damage and H2 leakage in the scenario under review."
+      },
+      {
+        "ai_id": "run_02#8",
+        "ref_id": "R16",
+        "reason": "Same cause: excess H2 boil-off gas from an LCV-300 fault. The High Temperature label fits the stack overheating in the scenario under review, and fire or explosion is the same kind of consequence as its overheating and H2 leakage."
+      },
+      {
+        "ai_id": "run_02#9",
+        "ref_id": "R07",
+        "reason": "Both describe loss of H2 boil-off gas flow to the anode because LCV-300 fails or closes, causing a drop in stack voltage or power output, which is the same scenario."
+      },
+      {
+        "ai_id": "run_02#12",
+        "ref_id": "R01",
+        "reason": "Loss of cathode air supply (LCV-200 or line fault) is the same mechanism as the low cathode air flow cause, and lost stack cooling is the over-temperature consequence under review."
+      },
+      {
+        "ai_id": "run_02#12",
+        "ref_id": "R02",
+        "reason": "Loss of cathode air supply is the same mechanism as the low cathode air flow cause, and fire or explosion matches the gas leak with fire risk consequence."
+      },
+      {
+        "ai_id": "run_02#12",
+        "ref_id": "R04",
+        "reason": "Loss of feed supply removes the internal reforming heat sink, which matches the low-feed cause, and lost stack cooling is the same over-temperature consequence."
+      },
+      {
+        "ai_id": "run_02#12",
+        "ref_id": "R20",
+        "reason": "Low air flow from line blockage, leak or an LCV-200 fault causing high stack temperature and fire is the same low cathode air flow scenario with the fire-risk consequence."
+      },
+      {
+        "ai_id": "run_02#12",
+        "ref_id": "R29",
+        "reason": "High cell current is the excessive current draw cause, and stack runaway is the same overheating consequence."
+      },
+      {
+        "ai_id": "run_02#13",
+        "ref_id": "R08",
+        "reason": "R08 has the same initiating cause as the scenario (excess air from an LCV-200 fault/open), and with no consequence recorded it matches on the cause alone."
+      },
+      {
+        "ai_id": "run_02#14",
+        "ref_id": "R29",
+        "reason": "Both describe excessive cell current on the stack's electrical output (high-power deviation) leading to stack overheating and damage, which corresponds to stack runaway."
+      },
+      {
+        "ai_id": "run_02#22",
+        "ref_id": "R04",
+        "reason": "Both describe reduced feed flow through an LCV-100 fault; the scenario's stack temperature rise from less endothermic reforming is the same as losing stack cooling."
+      },
+      {
+        "ai_id": "run_02#22",
+        "ref_id": "R05",
+        "reason": "Reduced feed flow from an LCV-100 fault causes stack power output to fall, which the scenario states explicitly."
+      },
+      {
+        "ai_id": "run_02#22",
+        "ref_id": "R06",
+        "reason": "Reduced feed flow from an LCV-100 fault makes the anode reaction unstable, which matches the scenario's local anode starvation, cell voltage drop and reversal."
+      },
+      {
+        "ai_id": "run_02#23",
+        "ref_id": "R07",
+        "reason": "Both rows cover reduced H2 boil-off gas supply to the anode, including an LCV-300 fault, which causes stack voltage to fall."
+      },
+      {
+        "ai_id": "run_02#26",
+        "ref_id": "R05",
+        "reason": "Fuel feed supply loss reducing stack power output is covered by the scenario's 'fuel shortfall' cause and its reduced-power consequence."
+      },
+      {
+        "ai_id": "run_02#26",
+        "ref_id": "R07",
+        "reason": "Loss of the H2 boil-off gas fuel supply causing a stack voltage drop is a fuel shortfall that reduces stack power, matching the scenario."
+      },
+      {
+        "ai_id": "run_02#26",
+        "ref_id": "R22",
+        "reason": "Low inlet (fuel/air) flow from a blockage, leak or LCV fault causing a drop in stack power output matches the scenario's fuel or air shortfall leading to reduced power."
+      }
+    ],
+    "embedding": [
+      {
+        "ai_id": "run_02#24",
+        "ref_id": "R14",
+        "score": 0.3362
+      },
+      {
+        "ai_id": "run_02#25",
+        "ref_id": "R23",
+        "score": 0.3631
+      },
+      {
+        "ai_id": "run_02#25",
+        "ref_id": "R24",
+        "score": 0.3408
+      }
+    ]
+  },
+  "run_03": {
+    "primary": [
+      {
+        "ai_id": "run_03#1",
+        "ref_id": "R03",
+        "reason": "Same cause (air supply loss or LCV-200 fault, compatible with No Flow) leading to the same consequence, a failed or unstable cathode reaction from lack of O2/CO2 with voltage collapse and cell reversal."
+      },
+      {
+        "ai_id": "run_03#1",
+        "ref_id": "R19",
+        "reason": "Same cause (low air flow from an LCV-200 fault) leading to an unstable cathode reaction, which the scenario under review fully contains, although this reference row sits under a High Temperature deviation."
+      },
+      {
+        "ai_id": "run_03#2",
+        "ref_id": "R01",
+        "reason": "Both describe reduced cathode air flow from a blocked line or an LCV-200 fault, causing loss of stack cooling, which the scenario describes as stack overheating."
+      },
+      {
+        "ai_id": "run_03#3",
+        "ref_id": "R08",
+        "reason": "Same cause: LCV-200 failure gives excess air flow (More Flow), and the reference row records no consequence, so it matches on the cause alone."
+      },
+      {
+        "ai_id": "run_03#4",
+        "ref_id": "R04",
+        "reason": "Same loss of feed flow through LCV-100 failure, with loss of stack cooling matching the loss of the endothermic reforming heat sink and resulting overheating."
+      },
+      {
+        "ai_id": "run_03#4",
+        "ref_id": "R05",
+        "reason": "Same loss of feed flow through LCV-100 failure, with the drop in stack power output matching the voltage collapse and loss of power."
+      },
+      {
+        "ai_id": "run_03#4",
+        "ref_id": "R06",
+        "reason": "Same loss of feed flow through LCV-100 failure, with the unstable anode reaction matching anode starvation and Ni anode oxidation."
+      },
+      {
+        "ai_id": "run_03#9",
+        "ref_id": "R07",
+        "reason": "Both describe loss or reduction of H2 boil-off gas flow to the anode, including an LCV-300 fault, which reduces stack electrical output; a stack voltage drop corresponds to the falling power output."
+      },
+      {
+        "ai_id": "run_03#10",
+        "ref_id": "R10",
+        "reason": "Same cause (excess H2 boil-off gas from an LCV-300 fault) and same More Flow deviation, with the scenario's downstream flammable atmosphere corresponding to the recorded fire or explosion consequence."
+      },
+      {
+        "ai_id": "run_03#10",
+        "ref_id": "R16",
+        "reason": "Same cause (excess H2 boil-off gas from an LCV-300 fault) leading to fire or explosion; the High Temperature label matches the scenario's stack overheating and is compatible with excess flow."
+      },
+      {
+        "ai_id": "run_03#11",
+        "ref_id": "R20",
+        "reason": "Both describe low cathode air flow (line blockage/leak or LCV-200 fault) causing a stack high-temperature excursion that leads to fire or explosion."
+      },
+      {
+        "ai_id": "run_03#11",
+        "ref_id": "R02",
+        "reason": "The cause is the same loss of cathode air supply, and the consequence is fire or explosion, both of which the scenario contains; the deviation label differs but the mechanism is the same."
+      },
+      {
+        "ai_id": "run_03#11",
+        "ref_id": "R29",
+        "reason": "The scenario includes high current as a cause, and the reference row's high cell current leading to stack runaway is the same overheating and severe stack damage outcome."
+      },
+      {
+        "ai_id": "run_03#12",
+        "ref_id": "R13",
+        "reason": "An unheated inlet stream from heat exchanger failure is the scenario's low inlet temperature cause, and it leads to the same consequence of molten carbonate electrolyte solidifying."
+      },
+      {
+        "ai_id": "run_03#12",
+        "ref_id": "R08",
+        "reason": "Excess air flow from an LCV-200 fault is one of the scenario's named causes, and this row has no consequence recorded, so it matches on the cause alone."
+      },
+      {
+        "ai_id": "run_03#14",
+        "ref_id": "R02",
+        "reason": "Loss of air supply from an LCV-200 fault or a line leak/blockage is the same as the 'sudden loss of air pressure' cause, and both lead to fire or explosion."
+      },
+      {
+        "ai_id": "run_03#14",
+        "ref_id": "R20",
+        "reason": "Low air flow from an LCV-200 fault or a line problem is the same air-loss cause, and both lead to fire or explosion."
+      },
+      {
+        "ai_id": "run_03#17",
+        "ref_id": "R02",
+        "reason": "Both describe loss of air supply pressure (a reduced or reversed air flow) that leads to fire or explosion, and the scenario under review fully contains this cause and consequence."
+      },
+      {
+        "ai_id": "run_03#19",
+        "ref_id": "R29",
+        "reason": "Both rows describe excessive stack current or power output (overload demand, short circuit or current-control fault vs. high cell current) leading to thermal escalation in the stack (local overheating vs. stack runaway); this is a borderline match because the reference row does not record fuel starvation, cell reversal or anode oxidation."
+      }
+    ],
+    "embedding": [
+      {
+        "ai_id": "run_03#5",
+        "ref_id": "R08",
+        "score": 0.3093
+      },
+      {
+        "ai_id": "run_03#5",
+        "ref_id": "R09",
+        "score": 0.3647
+      },
+      {
+        "ai_id": "run_03#10",
+        "ref_id": "R10",
+        "score": 0.3023
+      },
+      {
+        "ai_id": "run_03#15",
+        "ref_id": "R23",
+        "score": 0.5977
+      },
+      {
+        "ai_id": "run_03#15",
+        "ref_id": "R24",
+        "score": 0.5916
+      },
+      {
+        "ai_id": "run_03#19",
+        "ref_id": "R27",
+        "score": 0.326
+      },
+      {
+        "ai_id": "run_03#19",
+        "ref_id": "R29",
+        "score": 0.4154
+      }
+    ]
+  }
+}

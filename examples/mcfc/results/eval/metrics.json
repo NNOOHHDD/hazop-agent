@@ -1,0 +1,1857 @@
+{
+  "generated": "2026-10-03T10:02:21",
+  "hazop_eval_version": "0.1.0",
+  "inputs": {
+    "reference": "examples/mcfc/reference_worksheet.csv",
+    "n_reference_rows": 29,
+    "runs": [
+      "run_01",
+      "run_02",
+      "run_03"
+    ],
+    "matcher": "llm",
+    "matcher_model": "claude_cli:opus",
+    "embedding_backend": "tfidf",
+    "embedding_threshold": 0.3,
+    "judge_model": "claude_cli:opus",
+    "frequent_threshold": 0.6,
+    "llm_cache": {
+      "hits": 6,
+      "misses": 74
+    }
+  },
+  "summary": {
+    "recall": {
+      "n": 3,
+      "mean": 0.4713,
+      "sd": 0.0199,
+      "min": 0.4483,
+      "max": 0.4828
+    },
+    "precision": {
+      "n": 3,
+      "mean": 0.4615,
+      "sd": 0.0334,
+      "min": 0.44,
+      "max": 0.5
+    },
+    "f1": {
+      "n": 3,
+      "mean": 0.4653,
+      "sd": 0.0065,
+      "min": 0.4604,
+      "max": 0.4727
+    },
+    "coverage": {
+      "n": 3,
+      "mean": 0.9583,
+      "sd": 0.0722,
+      "min": 0.875,
+      "max": 1.0
+    },
+    "judge_mean": {
+      "n": 3,
+      "mean": 4.0057,
+      "sd": 0.1133,
+      "min": 3.88,
+      "max": 4.1
+    },
+    "FI_exact": {
+      "n": 3,
+      "mean": 0.3076,
+      "sd": 0.1983,
+      "min": 0.1765,
+      "max": 0.5357
+    },
+    "SI_exact": {
+      "n": 3,
+      "mean": 0.2453,
+      "sd": 0.0598,
+      "min": 0.1786,
+      "max": 0.2941
+    },
+    "embedding_recall": {
+      "n": 3,
+      "mean": 0.1609,
+      "sd": 0.0718,
+      "min": 0.1034,
+      "max": 0.2414
+    },
+    "matcher_kappa": {
+      "n": 3,
+      "mean": 0.0732,
+      "sd": 0.075,
+      "min": -0.007,
+      "max": 0.1417
+    }
+  },
+  "runs": [
+    {
+      "run": "run_01",
+      "model": "claude_cli:opus",
+      "mode": "agent",
+      "status": "finished",
+      "match": {
+        "n_ai_rows": 20,
+        "n_reference_rows": 29,
+        "n_pairs": 17,
+        "reference_rows_matched": 13,
+        "ai_rows_matched": 10,
+        "recall": 0.4483,
+        "precision": 0.5,
+        "f1": 0.4727,
+        "matched_reference_ids": [
+          "R01",
+          "R03",
+          "R04",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R16",
+          "R17",
+          "R18",
+          "R19",
+          "R20",
+          "R29"
+        ]
+      },
+      "risk_agreement": {
+        "n_pairs": 17,
+        "FI": {
+          "n": 17,
+          "exact": 0.1765,
+          "mean_abs_diff": 1.059,
+          "mean_signed_diff": -0.941,
+          "within_1": 0.7647
+        },
+        "SI": {
+          "n": 17,
+          "exact": 0.2941,
+          "mean_abs_diff": 0.765,
+          "mean_signed_diff": 0.294,
+          "within_1": 0.9412
+        },
+        "RI": {
+          "n": 17,
+          "exact": 0.1176,
+          "mean_abs_diff": 4.118,
+          "mean_signed_diff": -2.0
+        }
+      },
+      "coverage": {
+        "reference_keys": [
+          "Less Flow",
+          "Less Power",
+          "Less Pressure",
+          "Less Temperature",
+          "More Flow",
+          "More Power",
+          "More Pressure",
+          "More Temperature"
+        ],
+        "ai_keys": {
+          "As well as Composition": 1,
+          "Before Operation": 1,
+          "Less Flow": 4,
+          "Less Power": 1,
+          "Less Pressure": 1,
+          "Less Temperature": 1,
+          "Less Utility": 1,
+          "More Flow": 4,
+          "More Power": 1,
+          "More Pressure": 2,
+          "More Temperature": 1,
+          "Part of Composition": 1,
+          "Reverse Flow": 1
+        },
+        "covered": [
+          "Less Flow",
+          "Less Power",
+          "Less Pressure",
+          "Less Temperature",
+          "More Flow",
+          "More Power",
+          "More Pressure",
+          "More Temperature"
+        ],
+        "missing": [],
+        "ai_only": [
+          "As well as Composition",
+          "Before Operation",
+          "Less Utility",
+          "Part of Composition",
+          "Reverse Flow"
+        ],
+        "unparsed_ai_deviations": [],
+        "coverage": 1.0
+      },
+      "embedding_match": {
+        "n_ai_rows": 20,
+        "n_reference_rows": 29,
+        "n_pairs": 4,
+        "reference_rows_matched": 4,
+        "ai_rows_matched": 2,
+        "recall": 0.1379,
+        "precision": 0.1,
+        "f1": 0.1159
+      },
+      "matcher_agreement": {
+        "n_cells": 580,
+        "both": 1,
+        "only_first": 16,
+        "only_second": 3,
+        "accuracy": 0.9672,
+        "cohen_kappa": 0.085
+      },
+      "judge": {
+        "n": 20,
+        "mean": 4.1,
+        "sd": 0.7881,
+        "min": 2,
+        "max": 5,
+        "distribution": {
+          "1": 0,
+          "2": 1,
+          "3": 2,
+          "4": 11,
+          "5": 6
+        },
+        "unscored_rows": 0
+      }
+    },
+    {
+      "run": "run_02",
+      "model": "claude_cli:opus",
+      "mode": "agent",
+      "status": "finished",
+      "match": {
+        "n_ai_rows": 27,
+        "n_reference_rows": 29,
+        "n_pairs": 28,
+        "reference_rows_matched": 14,
+        "ai_rows_matched": 12,
+        "recall": 0.4828,
+        "precision": 0.4444,
+        "f1": 0.4628,
+        "matched_reference_ids": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R16",
+          "R19",
+          "R20",
+          "R22",
+          "R29"
+        ]
+      },
+      "risk_agreement": {
+        "n_pairs": 28,
+        "FI": {
+          "n": 28,
+          "exact": 0.5357,
+          "mean_abs_diff": 0.5,
+          "mean_signed_diff": -0.143,
+          "within_1": 0.9643
+        },
+        "SI": {
+          "n": 28,
+          "exact": 0.1786,
+          "mean_abs_diff": 1.071,
+          "mean_signed_diff": 0.071,
+          "within_1": 0.75
+        },
+        "RI": {
+          "n": 28,
+          "exact": 0.0714,
+          "mean_abs_diff": 4.143,
+          "mean_signed_diff": -0.214
+        }
+      },
+      "coverage": {
+        "reference_keys": [
+          "Less Flow",
+          "Less Power",
+          "Less Pressure",
+          "Less Temperature",
+          "More Flow",
+          "More Power",
+          "More Pressure",
+          "More Temperature"
+        ],
+        "ai_keys": {
+          "As well as Composition": 2,
+          "Less Flow": 6,
+          "Less Level": 1,
+          "Less Power": 2,
+          "Less Pressure": 1,
+          "Less Temperature": 1,
+          "Less Utility": 1,
+          "More Flow": 3,
+          "More Power": 1,
+          "More Pressure": 2,
+          "More Temperature": 2,
+          "Other than Composition": 1,
+          "Other than Operation": 1,
+          "Part of Composition": 1,
+          "Reverse Flow": 2
+        },
+        "covered": [
+          "Less Flow",
+          "Less Power",
+          "Less Pressure",
+          "Less Temperature",
+          "More Flow",
+          "More Power",
+          "More Pressure",
+          "More Temperature"
+        ],
+        "missing": [],
+        "ai_only": [
+          "As well as Composition",
+          "Less Level",
+          "Less Utility",
+          "Other than Composition",
+          "Other than Operation",
+          "Part of Composition",
+          "Reverse Flow"
+        ],
+        "unparsed_ai_deviations": [],
+        "coverage": 1.0
+      },
+      "embedding_match": {
+        "n_ai_rows": 27,
+        "n_reference_rows": 29,
+        "n_pairs": 3,
+        "reference_rows_matched": 3,
+        "ai_rows_matched": 2,
+        "recall": 0.1034,
+        "precision": 0.0741,
+        "f1": 0.0863
+      },
+      "matcher_agreement": {
+        "n_cells": 783,
+        "both": 0,
+        "only_first": 28,
+        "only_second": 3,
+        "accuracy": 0.9604,
+        "cohen_kappa": -0.007
+      },
+      "judge": {
+        "n": 27,
+        "mean": 4.037,
+        "sd": 0.854,
+        "min": 2,
+        "max": 5,
+        "distribution": {
+          "1": 0,
+          "2": 2,
+          "3": 3,
+          "4": 14,
+          "5": 8
+        },
+        "unscored_rows": 0
+      }
+    },
+    {
+      "run": "run_03",
+      "model": "claude_cli:opus",
+      "mode": "agent",
+      "status": "finished",
+      "match": {
+        "n_ai_rows": 25,
+        "n_reference_rows": 29,
+        "n_pairs": 19,
+        "reference_rows_matched": 14,
+        "ai_rows_matched": 11,
+        "recall": 0.4828,
+        "precision": 0.44,
+        "f1": 0.4604,
+        "matched_reference_ids": [
+          "R01",
+          "R02",
+          "R03",
+          "R04",
+          "R05",
+          "R06",
+          "R07",
+          "R08",
+          "R10",
+          "R13",
+          "R16",
+          "R19",
+          "R20",
+          "R29"
+        ]
+      },
+      "risk_agreement": {
+        "n_pairs": 19,
+        "FI": {
+          "n": 19,
+          "exact": 0.2105,
+          "mean_abs_diff": 0.947,
+          "mean_signed_diff": -0.842,
+          "within_1": 0.8421
+        },
+        "SI": {
+          "n": 19,
+          "exact": 0.2632,
+          "mean_abs_diff": 0.842,
+          "mean_signed_diff": 0.105,
+          "within_1": 0.8947
+        },
+        "RI": {
+          "n": 19,
+          "exact": 0.1053,
+          "mean_abs_diff": 4.211,
+          "mean_signed_diff": -2.421
+        }
+      },
+      "coverage": {
+        "reference_keys": [
+          "Less Flow",
+          "Less Power",
+          "Less Pressure",
+          "Less Temperature",
+          "More Flow",
+          "More Power",
+          "More Pressure",
+          "More Temperature"
+        ],
+        "ai_keys": {
+          "Before Operation": 1,
+          "Less Composition": 2,
+          "Less Flow": 4,
+          "Less Power": 1,
+          "Less Temperature": 1,
+          "Less Utility": 1,
+          "More Flow": 4,
+          "More Power": 1,
+          "More Pressure": 1,
+          "More Temperature": 1,
+          "Other than Composition": 1,
+          "Other than Flow": 1,
+          "Other than Phase": 1,
+          "Other than Power": 1,
+          "Other than Pressure": 1,
+          "Reverse Flow": 2,
+          "Reverse Power": 1
+        },
+        "covered": [
+          "Less Flow",
+          "Less Power",
+          "Less Temperature",
+          "More Flow",
+          "More Power",
+          "More Pressure",
+          "More Temperature"
+        ],
+        "missing": [
+          "Less Pressure"
+        ],
+        "ai_only": [
+          "Before Operation",
+          "Less Composition",
+          "Less Utility",
+          "Other than Composition",
+          "Other than Flow",
+          "Other than Phase",
+          "Other than Power",
+          "Other than Pressure",
+          "Reverse Flow",
+          "Reverse Power"
+        ],
+        "unparsed_ai_deviations": [],
+        "coverage": 0.875
+      },
+      "embedding_match": {
+        "n_ai_rows": 25,
+        "n_reference_rows": 29,
+        "n_pairs": 7,
+        "reference_rows_matched": 7,
+        "ai_rows_matched": 4,
+        "recall": 0.2414,
+        "precision": 0.16,
+        "f1": 0.1924
+      },
+      "matcher_agreement": {
+        "n_cells": 725,
+        "both": 2,
+        "only_first": 17,
+        "only_second": 5,
+        "accuracy": 0.9697,
+        "cohen_kappa": 0.1417
+      },
+      "judge": {
+        "n": 25,
+        "mean": 3.88,
+        "sd": 0.8327,
+        "min": 2,
+        "max": 5,
+        "distribution": {
+          "1": 0,
+          "2": 2,
+          "3": 4,
+          "4": 14,
+          "5": 5
+        },
+        "unscored_rows": 0
+      }
+    }
+  ],
+  "reproducibility": {
+    "n_runs": 3,
+    "frequent_threshold": 0.6,
+    "counts": {
+      "never": 12,
+      "occasional": 4,
+      "frequent": 13
+    },
+    "histogram_runs_matched": {
+      "0": 12,
+      "1": 4,
+      "2": 2,
+      "3": 11
+    },
+    "reference_rows": [
+      {
+        "ref_id": "R01",
+        "deviation": "Less Flow",
+        "causes": "Air supply lost: line blocked or leaking, or LCV-200 fault",
+        "consequences": "Stack cooling lost",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310"
+        ],
+        "FI": 4,
+        "SI": 2,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R02",
+        "deviation": "Less Flow",
+        "causes": "Air supply lost: line blocked or leaking, or LCV-200 fault",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 4,
+        "SI": 5,
+        "runs_matched": 2,
+        "fraction": 0.6667,
+        "matched_runs": [
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R03",
+        "deviation": "Less Flow",
+        "causes": "Air supply lost: line blocked or leaking, or LCV-200 fault",
+        "consequences": "Unstable cathode reaction",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 2,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R04",
+        "deviation": "Less Flow",
+        "causes": "Feed supply lost: line blocked or leaking, or LCV-100 fault",
+        "consequences": "Stack cooling lost",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310"
+        ],
+        "FI": 4,
+        "SI": 2,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R05",
+        "deviation": "Less Flow",
+        "causes": "Feed supply lost: line blocked or leaking, or LCV-100 fault",
+        "consequences": "Stack power output drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 2,
+        "fraction": 0.6667,
+        "matched_runs": [
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R06",
+        "deviation": "Less Flow",
+        "causes": "Feed supply lost: line blocked or leaking, or LCV-100 fault",
+        "consequences": "Unstable anode reaction",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 2,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R07",
+        "deviation": "Less Flow",
+        "causes": "H2 boil-off gas supply lost: line blocked or leaking, or LCV-300 fault",
+        "consequences": "Stack voltage drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R08",
+        "deviation": "More Flow",
+        "causes": "Excess air: LCV-200 fault",
+        "consequences": "",
+        "safeguards": [],
+        "FI": 4,
+        "SI": 1,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R09",
+        "deviation": "More Flow",
+        "causes": "Excess feed: LCV-100 fault",
+        "consequences": "Stack runaway",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310",
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 3,
+        "SI": 4,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R10",
+        "deviation": "More Flow",
+        "causes": "Excess H2 boil-off gas: LCV-300 fault",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 4,
+        "SI": 5,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R11",
+        "deviation": "More Flow",
+        "causes": "BPCS failure",
+        "consequences": "Stack runaway",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310",
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 3,
+        "SI": 4,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R12",
+        "deviation": "Low Temperature",
+        "causes": "BPCS failure",
+        "consequences": "Stack voltage drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R13",
+        "deviation": "Low Temperature",
+        "causes": "Inlet stream not heated (heat exchanger failure)",
+        "consequences": "Molten carbonate electrolyte solidifies",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 5,
+        "SI": 3,
+        "runs_matched": 1,
+        "fraction": 0.3333,
+        "matched_runs": [
+          "run_03"
+        ],
+        "class": "occasional"
+      },
+      {
+        "ref_id": "R14",
+        "deviation": "Low Temperature",
+        "causes": "Inlet stream not heated (heat exchanger failure)",
+        "consequences": "Stack power output drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 5,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R15",
+        "deviation": "Low Temperature",
+        "causes": "Unstable electrochemical reaction",
+        "consequences": "Stack voltage drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R16",
+        "deviation": "High Temperature",
+        "causes": "Excess H2 boil-off gas: LCV-300 fault",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 5,
+        "SI": 4,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R17",
+        "deviation": "High Temperature",
+        "causes": "Excess feed: LCV-100 fault",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 5,
+        "SI": 4,
+        "runs_matched": 1,
+        "fraction": 0.3333,
+        "matched_runs": [
+          "run_01"
+        ],
+        "class": "occasional"
+      },
+      {
+        "ref_id": "R18",
+        "deviation": "High Temperature",
+        "causes": "Excess feed: LCV-100 fault",
+        "consequences": "Molten carbonate electrolyte evaporates",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 1,
+        "fraction": 0.3333,
+        "matched_runs": [
+          "run_01"
+        ],
+        "class": "occasional"
+      },
+      {
+        "ref_id": "R19",
+        "deviation": "High Temperature",
+        "causes": "Low air flow: line blocked or leaking, or LCV-200 fault",
+        "consequences": "Unstable cathode reaction",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 2,
+        "SI": 3,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R20",
+        "deviation": "High Temperature",
+        "causes": "Low air flow: line blocked or leaking, or LCV-200 fault",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 3,
+        "SI": 5,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      },
+      {
+        "ref_id": "R21",
+        "deviation": "Low Pressure",
+        "causes": "Low inlet flow: partial blockage or leak, or inlet LCV fault",
+        "consequences": "Unstable stack reaction",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 2,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R22",
+        "deviation": "Low Pressure",
+        "causes": "Low inlet flow: partial blockage or leak, or inlet LCV fault",
+        "consequences": "Stack power output drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "runs_matched": 1,
+        "fraction": 0.3333,
+        "matched_runs": [
+          "run_02"
+        ],
+        "class": "occasional"
+      },
+      {
+        "ref_id": "R23",
+        "deviation": "High Pressure",
+        "causes": "Vent path blocked at PSV-160 / BV-160",
+        "consequences": "Stack runaway",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310",
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R24",
+        "deviation": "High Pressure",
+        "causes": "Vent path blocked at PSV-160 / BV-160",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 3,
+        "SI": 5,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R25",
+        "deviation": "High Pressure",
+        "causes": "BPCS failure",
+        "consequences": "Stack runaway",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310",
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R26",
+        "deviation": "High Pressure",
+        "causes": "BPCS failure",
+        "consequences": "Fire or explosion",
+        "safeguards": [
+          "Fire and gas detection"
+        ],
+        "FI": 4,
+        "SI": 5,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R27",
+        "deviation": "Low Power Output",
+        "causes": "Low cell current or voltage",
+        "consequences": "Stack power output drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R28",
+        "deviation": "Low Power Output",
+        "causes": "BPCS failure",
+        "consequences": "Stack power output drops",
+        "safeguards": [
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 0,
+        "fraction": 0.0,
+        "matched_runs": [],
+        "class": "never"
+      },
+      {
+        "ref_id": "R29",
+        "deviation": "High Power Output",
+        "causes": "High cell current or voltage",
+        "consequences": "Stack runaway",
+        "safeguards": [
+          "Temperature indication TI-200/210/300/310",
+          "Cell voltage monitoring VZA-100/110"
+        ],
+        "FI": 4,
+        "SI": 3,
+        "runs_matched": 3,
+        "fraction": 1.0,
+        "matched_runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "class": "frequent"
+      }
+    ]
+  },
+  "ai_only": {
+    "n_rows": 39,
+    "clusters": [
+      {
+        "deviation": "No Utility | Instrument air / control power to BPCS and valves",
+        "causes": "Loss of instrument air or UPS/control power",
+        "consequences": "BV-400 and BV-410 fail closed and BV-160 fails open. If LCV-100/LCV-300 do not also fail closed, fuel keeps entering a blocked-in stack, overpressuring it and venting H2 at Vent Out",
+        "safeguards": [
+          "BV-160 fail open to Vent Out",
+          "PSV-160"
+        ],
+        "recommendations": [
+          "Specify LCV-100 and LCV-300 as fail-closed and review the fail position of LCV-200 for a safe shutdown",
+          "Provide a UPS for the BPCS and safety system"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 3,
+        "n_runs": 3,
+        "runs": [
+          "run_01",
+          "run_02",
+          "run_03"
+        ],
+        "row_ids": [
+          "run_01#19",
+          "run_02#17",
+          "run_03#25"
+        ],
+        "judge_mean": 3.33
+      },
+      {
+        "deviation": "More Flow | Vent Out (BV-160 / PSV-160)",
+        "causes": "BV-160 (fail open) opens spuriously on loss of signal or utility, or PSV-160 lifts or passes",
+        "consequences": "The stack depressurises suddenly and hot, possibly flammable gas is released at Vent Out. It may ignite at the vent outlet, and the pressure transient upsets the stack",
+        "safeguards": [
+          "Vent routed to a dedicated Vent Out"
+        ],
+        "recommendations": [
+          "Confirm the vent outlet is in a safe location per class rules for hydrogen-fuelled ships, with a dispersion study",
+          "Add BV-160 position indication and an alarm"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 2,
+        "n_runs": 3,
+        "runs": [
+          "run_01",
+          "run_03"
+        ],
+        "row_ids": [
+          "run_01#15",
+          "run_03#15"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "No Power | DC output",
+        "causes": "DC breaker trip or load rejection by the propulsion system",
+        "consequences": "The cells reach open-circuit voltage and the voltage goes high. Fuel is not consumed and flows to Anode Out, and the stack cools. The ship loses propulsion power, which in confined waters can lead to collision or grounding.",
+        "safeguards": [
+          "VZA-110 high cell voltage alarm",
+          "IE-300 / II-300 current indication",
+          "Multiple stack modules providing partial redundancy"
+        ],
+        "recommendations": [
+          "Implement automatic fuel cutback on load rejection",
+          "Review propulsion redundancy and emergency power against class rules"
+        ],
+        "FI": 3,
+        "SI": 4,
+        "run_count": 2,
+        "n_runs": 3,
+        "runs": [
+          "run_02",
+          "run_03"
+        ],
+        "row_ids": [
+          "run_02#15",
+          "run_03#20"
+        ],
+        "judge_mean": 4.5
+      },
+      {
+        "deviation": "As well as Composition | Air to cathode (sea salt / water spray)",
+        "causes": "Air intake filtration fails or green water / sea spray is drawn into the air compressor intake in heavy weather",
+        "consequences": "Chlorides and sodium enter the cathode. The cathode and separator plates corrode faster and the carbonate electrolyte is contaminated. Cell performance drops and stack life is shortened (economic loss).",
+        "safeguards": [
+          "VZA-100 low cell voltage alarm",
+          "TE-110 / TI-110 and PIT-110 / PI-110 air inlet indication"
+        ],
+        "recommendations": [
+          "Provide marine-grade air intake filtration (salt/coalescing filters) with differential pressure alarm",
+          "Locate the air intake away from spray zones and exhaust/vent outlets"
+        ],
+        "FI": 3,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#27"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "As well as Composition | Feed (natural gas + water) to reformer",
+        "causes": "Sulphur compounds or other contaminants in the natural gas, or impurities in the water",
+        "consequences": "The reforming catalyst and Ni anode are poisoned. Reforming drops off, the heat balance is upset, and stack performance degrades over time",
+        "safeguards": [],
+        "recommendations": [
+          "Confirm upstream desulphurisation and water treatment, and set periodic feed quality analysis"
+        ],
+        "FI": 3,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#7"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "As well as Composition | Feed (sulphur / impurities)",
+        "causes": "Desulphurisation upstream fails or the natural gas supply is off-specification",
+        "consequences": "The reformer catalyst and Ni anode are poisoned. Performance degrades and stack life is shortened (economic loss).",
+        "safeguards": [
+          "VZA-100 low cell voltage alarm"
+        ],
+        "recommendations": [
+          "Provide a sulphur analyser downstream of the desulphuriser with alarm"
+        ],
+        "FI": 3,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#7"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Before Operation | Start-up fuel admission",
+        "causes": "Fuel (LCV-100/LCV-300) admitted before the stack is purged and heated, due to operator error or sequence fault",
+        "consequences": "Residual air and fuel form a flammable mixture inside the hot stack, leading to internal explosion and stack destruction.",
+        "safeguards": [
+          "BPCS start-up control",
+          "TE-200/TE-210 temperature indication"
+        ],
+        "recommendations": [
+          "Implement start-up permissives (purge complete, stack temperature) on LCV-100/LCV-300",
+          "Provide inert gas purge system and written start-up procedure"
+        ],
+        "FI": 2,
+        "SI": 5,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#24"
+        ],
+        "judge_mean": 3.0
+      },
+      {
+        "deviation": "Before Operation | Start-up sequence",
+        "causes": "Feed or H2 BOG is admitted before the stack is purged and heated, or before air flow is established",
+        "consequences": "A flammable mixture forms in the stack or vent and can explode. Feeding a cold reformer deposits carbon",
+        "safeguards": [
+          "Operating procedures",
+          "TE-200 / TE-210 stack temperature indication"
+        ],
+        "recommendations": [
+          "Add start-up permissives: completed inert purge, minimum stack temperature, and confirmed air flow before LCV-100 / LCV-300 can open"
+        ],
+        "FI": 2,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#20"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "Less Composition | CO2 at cathode",
+        "causes": "High share of H2 BOG relative to natural gas feed (little CO2 in anode exhaust recycled to cathode)",
+        "consequences": "Carbonate ions are not regenerated, so electrolyte is depleted, cell voltage drops and performance degrades.",
+        "safeguards": [
+          "FIT-100 and FIT-120 flow indication",
+          "VZA-100 low voltage alarm"
+        ],
+        "recommendations": [
+          "Define minimum NG/BOG ratio in control philosophy, or CO2 make-up"
+        ],
+        "FI": 3,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#23"
+        ],
+        "judge_mean": 3.0
+      },
+      {
+        "deviation": "Less Composition | Feed steam-to-carbon ratio",
+        "causes": "Water pump failure/low water flow while NG flow continues (FIT-100 measures only total feed)",
+        "consequences": "Carbon is deposited on the reformer catalyst and anode. This blocks gas channels, raises pressure drop, deactivates the catalyst and causes irreversible stack damage.",
+        "safeguards": [
+          "FIT-100/FI-100 total feed flow"
+        ],
+        "recommendations": [
+          "Provide separate NG and water flow measurement with a low steam-to-carbon ratio alarm and trip of NG supply"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#6"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Less Level | Electrolyte in stack",
+        "causes": "Carbonate is gradually lost through evaporation, corrosion and creep over the operating life",
+        "consequences": "The electrolyte matrix dries out and gas crosses over. Cell voltage falls and local combustion hot spots develop.",
+        "safeguards": [
+          "VE-100 / VZA-100 low cell voltage alarm",
+          "TE-200/TE-210 temperature monitoring"
+        ],
+        "recommendations": [
+          "Trend cell voltage deviation for predictive stack replacement"
+        ],
+        "FI": 4,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#20"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Less Pressure | MCFC stack (external leak)",
+        "causes": "Wet-seal or flange leak at 650 °C, or carbonate corrosion of the stack housing or manifolds",
+        "consequences": "H2, CO and natural gas are released into the fuel cell space. Fire or explosion is possible, people can be exposed to toxic CO, and propulsion power may be lost",
+        "safeguards": [
+          "PIT-100 / PIT-110 / PIT-120 pressure indication",
+          "VZA-100 low voltage alarm"
+        ],
+        "recommendations": [
+          "Provide H2 and CO gas detection in the fuel cell space, interlocked to fuel isolation and ventilation",
+          "Enclose the stack with ventilation monitoring per IGF Code / class rules"
+        ],
+        "FI": 3,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#16"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Less Pressure | Stack anode / cathode",
+        "causes": "PSV-160 lifts or passes, BV-160 opens spuriously (fail-open), or an external leak occurs",
+        "consequences": "The stack depressurises and stack gas, including H2 and CO, is released to Vent Out. The anode-cathode differential is upset and gas crosses over. Flammable or toxic gas is released at the vent outlet.",
+        "safeguards": [
+          "PIT-100 / PIT-110 / PIT-120 inlet pressure indication",
+          "VZA-100 low cell voltage alarm"
+        ],
+        "recommendations": [
+          "Add position feedback on BV-160 with an alarm",
+          "Locate Vent Out in a safe area, confirmed by a dispersion study"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#25"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "More Flow | Feed (natural gas + water) to reformer",
+        "causes": "LCV-100 fails open or SIC-400 control fault",
+        "consequences": "Excess endothermic reforming over-cools the stack and creates thermal gradients that can crack the cells. Anode pressure rises. Unreacted fuel is carried to the anode outlet, which can overheat downstream combustion equipment.",
+        "safeguards": [
+          "FIT-100 / FI-100 feed flow indication",
+          "TE-200/TE-210 and TT-410 stack temperature monitoring",
+          "TE-300 / TI-300 anode outlet temperature"
+        ],
+        "recommendations": [
+          "Add high feed flow alarm on FIT-100 and fuel-to-current ratio limiting in the BPCS"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#5"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "More Flow | Feed (natural gas + water) to reformer",
+        "causes": "LCV-100 fails open or flow control fault",
+        "consequences": "Excess endothermic reforming cools the stack locally (risk of electrolyte freezing at the inlet). Excess unreacted CH4/H2 goes to the anode outlet and downstream, and fuel is wasted.",
+        "safeguards": [
+          "FIT-100/FI-100",
+          "TE-200/TE-210, TT-410",
+          "TE-300/TI-300 anode outlet temperature"
+        ],
+        "recommendations": [
+          "Add high feed flow alarm on FIT-100"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#5"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "More Pressure | Anode outlet",
+        "causes": "BV-400 (fail closed) closes spuriously on loss of signal or actuator power, or the downstream line is blocked",
+        "consequences": "Anode pressure rises while fuel is still supplied. High differential pressure across the electrolyte forces H2/CO into the cathode, causing combustion and hot spots. Seals can fail and release H2/CO externally (fire, explosion, CO toxicity)",
+        "safeguards": [
+          "PSV-160 relief to Vent Out",
+          "TE-300 / TI-300",
+          "PIT-100 / PIT-120 upstream pressure indication"
+        ],
+        "recommendations": [
+          "Add an anode outlet pressure transmitter with a high alarm and a trip that closes LCV-100 / LCV-300",
+          "Interlock BV-400 closure with fuel isolation",
+          "Verify that PSV-160 protects the anode side and is sized for this case"
+        ],
+        "FI": 3,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#13"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "More Pressure | Anode-to-cathode differential",
+        "causes": "Mismatch between fuel (LCV-100/LCV-300) and air (LCV-200) flows, or uneven throttling of BV-400 against BV-410",
+        "consequences": "The electrolyte wet seal is broken and gas crosses over. H2/CO burns directly with air inside the stack, causing hot spots and cell or stack destruction. A fire may spread outside the stack.",
+        "safeguards": [
+          "PIT-100 / PIT-110 / PIT-120 inlet pressure indication",
+          "TE-200/TE-210 and TT-410 stack temperature monitoring",
+          "VZA-100 low cell voltage alarm"
+        ],
+        "recommendations": [
+          "Install an anode-cathode differential pressure transmitter with alarm and a SIL 1 trip"
+        ],
+        "FI": 3,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#11"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "More Pressure | Cathode outlet",
+        "causes": "BV-410 (fail closed) closes spuriously, or the downstream line is blocked",
+        "consequences": "The cathode overpressures and the differential pressure reverses, pushing air into the anode. Mixing O2 with fuel causes local combustion, damages the stack, and can break seals",
+        "safeguards": [
+          "PSV-160 relief to Vent Out",
+          "BV-160 (fail open) vent valve",
+          "TE-310 / TI-310",
+          "PIT-110 / PI-110"
+        ],
+        "recommendations": [
+          "Interlock BV-410 closure with air flow reduction (LCV-200) and stack shutdown",
+          "Add a cathode outlet pressure measurement"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#14"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "More Pressure | Stack (blocked outlet)",
+        "causes": "BV-400 or BV-410 closes spuriously (fail-closed on signal/air loss) while inlet flows continue",
+        "consequences": "Stack overpressure causes wet-seal blow-out, anode/cathode gas crossover and mixing of H2/CO with air at 650 °C. This can cause internal combustion, fire or explosion and release from the stack.",
+        "safeguards": [
+          "PSV-160 to Vent Out",
+          "BV-160 vent valve (fail open)",
+          "PIT-100/PIT-110/PIT-120 inlet pressure indication"
+        ],
+        "recommendations": [
+          "Interlock closure of BV-400/BV-410 to close LCV-100/LCV-200/LCV-300 and open BV-160",
+          "Add stack pressure transmitter with high-high pressure trip (SIL 2 assessment)",
+          "Verify PSV-160 sizing for blocked-outlet case"
+        ],
+        "FI": 3,
+        "SI": 5,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#13"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "More Pressure | Stack anode / cathode",
+        "causes": "BV-400 or BV-410 (fail-closed) closes spuriously or loses its signal/actuating air while the inlets remain open",
+        "consequences": "The outlet is blocked and pressure in the stack rises. The wet seals fail and hot H2/CO-rich gas is released into the machinery space. Fire or explosion and CO toxicity can cause multiple fatalities.",
+        "safeguards": [
+          "PSV-160 to Vent Out",
+          "BV-160 (fail-open) vent valve",
+          "PIT-100 / PIT-110 / PIT-120 inlet pressure indication"
+        ],
+        "recommendations": [
+          "Install stack pressure transmitters on anode and cathode with an independent high-high pressure SIF (SIL 2) that closes LCV-100/200/300 and opens BV-160",
+          "Add position feedback on BV-400 and BV-410, interlocked with the inlet valves",
+          "Verify PSV-160 sizing for the blocked-outlet case and that it protects both anode and cathode"
+        ],
+        "FI": 3,
+        "SI": 5,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#10"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "More Temperature | Feed / air / H2 BOG inlet",
+        "causes": "Upstream heat exchanger bypass or control failure (outside this node) gives hot inlet gas",
+        "consequences": "The stack inlet is overheated and thermal gradients form. Carbon can deposit at the reformer inlet from cracking of natural gas. Stack temperature rises and the stack ages faster.",
+        "safeguards": [
+          "TE-100 / TI-100, TE-110 / TI-110 and TE-120 / TI-120 inlet temperature indication",
+          "TE-200/TE-210 and TT-410 stack temperature monitoring"
+        ],
+        "recommendations": [
+          "Add high temperature alarms on TI-100, TI-110 and TI-120"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#24"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "No Power | DC-Power output",
+        "causes": "Sudden loss of load (propulsion trip, breaker opens), or a short circuit in the DC system",
+        "consequences": "On open circuit the cell voltage rises and unconsumed fuel goes to Anode Out. Without the cell reaction heat the stack cools. A short circuit can cause arcing and damage to the electrical system, and propulsion is lost",
+        "safeguards": [
+          "VE-110 / VZA-110 high voltage alarm",
+          "IE-300 / II-300 current monitoring",
+          "SIC-400 fuel and air control"
+        ],
+        "recommendations": [
+          "Cut fuel back automatically on load rejection",
+          "Confirm DC short-circuit protection and selectivity"
+        ],
+        "FI": 4,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#18"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "Other than Composition | Feed (low steam-to-carbon ratio)",
+        "causes": "Water pump failure or wrong water/natural gas proportion in the feed",
+        "consequences": "Carbon deposits in the internal reformer and the anode. The catalyst deactivates and flow passages block, causing pressure rise and maldistribution. Stack damage and loss of power follow.",
+        "safeguards": [
+          "FIT-100 total feed flow indication",
+          "PIT-100 feed pressure indication"
+        ],
+        "recommendations": [
+          "Install separate water and natural gas flow measurement with steam-to-carbon ratio control and a low-ratio trip"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#6"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Other than Composition | Feed (sulphur/contaminants in natural gas)",
+        "causes": "Desulphurisation upstream fails or is saturated, or the NG supply is off-spec",
+        "consequences": "Sulphur poisons the reformer catalyst and Ni anode, causing progressive voltage loss and stack degradation.",
+        "safeguards": [
+          "VE-100/VZA-100 cell voltage monitoring"
+        ],
+        "recommendations": [
+          "Provide sulphur breakthrough monitoring/periodic analysis downstream of the desulphuriser"
+        ],
+        "FI": 3,
+        "SI": 2,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#7"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Other than Flow | Stack external leak",
+        "causes": "Wet seal degradation, corrosion, thermal cycling or ship motion/vibration",
+        "consequences": "H2/CO released into the fuel cell room causes fire/explosion and toxic CO exposure to crew.",
+        "safeguards": [],
+        "recommendations": [
+          "Provide H2 and CO gas detection in the stack enclosure with ESD isolating LCV-100/LCV-300",
+          "Provide mechanical ventilation of the enclosure with monitoring per class rules"
+        ],
+        "FI": 3,
+        "SI": 5,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#18"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "Other than Operation | Stack start-up",
+        "causes": "H2 BOG or feed is admitted before the stack is purged or brought up to temperature, or the start-up sequence is done in the wrong order",
+        "consequences": "A flammable mixture forms in the stack and ducts and can explode. Thermal shock and gas crossover follow if the electrolyte is not yet molten. Multiple fatalities are possible in an enclosed machinery space.",
+        "safeguards": [
+          "BPCS start-up sequence",
+          "TE-200/TE-210 stack temperature indication"
+        ],
+        "recommendations": [
+          "Implement start-up permissives (purge complete, stack temperature above electrolyte melting point) before LCV-100/LCV-300 can open",
+          "Provide written start-up/shutdown procedures and operator training"
+        ],
+        "FI": 2,
+        "SI": 5,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#18"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "Other than Phase | Feed (liquid water carry-over)",
+        "causes": "Upstream vaporiser/heat exchanger failure lets liquid water reach the stack inlet",
+        "consequences": "Liquid water hits the 650 °C reformer, causing thermal shock, cracking of catalyst/plates and local quenching of cells.",
+        "safeguards": [
+          "TE-100/TI-100 feed temperature"
+        ],
+        "recommendations": [
+          "Add low feed temperature alarm/trip on TE-100 to close LCV-100"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#8"
+        ],
+        "judge_mean": 4.0
+      },
+      {
+        "deviation": "Other than Power | Cell voltage deviation",
+        "causes": "Individual cell degradation, local fuel starvation or flow maldistribution",
+        "consequences": "Weak cells reverse, causing local hot spots, electrolyte loss and possible seal failure leading to a gas leak.",
+        "safeguards": [
+          "VE-100/VZA-100 low voltage alarm",
+          "VE-110/VZA-110 high voltage alarm",
+          "BPCS cell voltage deviation monitoring"
+        ],
+        "recommendations": [
+          "Provide automatic load reduction on high cell voltage deviation"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#22"
+        ],
+        "judge_mean": 3.0
+      },
+      {
+        "deviation": "Part of Composition | Feed (natural gas + water) to reformer",
+        "causes": "Water pump failure or low water flow gives a low steam-to-carbon ratio",
+        "consequences": "Carbon deposits in the reformer and anode. The catalyst deactivates, flow paths block and pressure drop rises, causing performance loss and stack damage",
+        "safeguards": [
+          "FIT-100 / FI-100 (total feed flow only)",
+          "BPCS fuel flow control"
+        ],
+        "recommendations": [
+          "Measure water and natural gas flows separately, with a low steam-to-carbon ratio alarm and natural gas cut-off"
+        ],
+        "FI": 3,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#6"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Part of Composition | Stack containment (external leak)",
+        "causes": "Seal, gasket or flange failure at the stack or its inlet/outlet piping from thermal cycling, ship motion or corrosion",
+        "consequences": "Hot H2/CO-rich gas is released into the machinery space, with jet fire or explosion and CO poisoning of crew. Multiple fatalities are possible.",
+        "safeguards": [],
+        "recommendations": [
+          "Install H2 and CO gas detection in the stack enclosure with an ESD (SIL 2) that closes LCV-100/200/300",
+          "Provide a ventilated stack enclosure per the IGF Code",
+          "Set up an inspection programme for seals and flanges"
+        ],
+        "FI": 3,
+        "SI": 5,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#19"
+        ],
+        "judge_mean": 5.0
+      },
+      {
+        "deviation": "Reverse Flow | Anode Out / Cathode Out",
+        "causes": "Stack pressure drops during shutdown/trip while the downstream header remains pressurised, or BV-400/BV-410 is passing",
+        "consequences": "Air/exhaust enters the anode, oxidising the Ni anode. A flammable mixture may form inside the stack.",
+        "safeguards": [
+          "BV-400 and BV-410 fail-closed valves"
+        ],
+        "recommendations": [
+          "Install non-return valves on anode and cathode outlets",
+          "Provide inert gas purge on shutdown"
+        ],
+        "FI": 2,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#16"
+        ],
+        "judge_mean": 3.0
+      },
+      {
+        "deviation": "Reverse Flow | H2 BOG / Feed inlet lines",
+        "causes": "Supply pressure in the H2 BOG or feed line drops below stack pressure, for example on a compressor trip",
+        "consequences": "Hot reformed gas (H2, CO) flows back into the upstream lines and compressors. This can overheat equipment, mix gas into another system, and expose people to toxic CO",
+        "safeguards": [
+          "PIT-100 / PI-100",
+          "PIT-120 / PI-120"
+        ],
+        "recommendations": [
+          "Install check valves on the feed and H2 BOG inlet lines",
+          "Close LCV-100 / LCV-300 on low supply pressure"
+        ],
+        "FI": 2,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_01"
+        ],
+        "row_ids": [
+          "run_01#10"
+        ],
+        "judge_mean": 3.0
+      },
+      {
+        "deviation": "Reverse Flow | Vent Out / Cathode Out into stack (correction to row 16)",
+        "causes": "BV-160 opens (fail-open on utility loss or shutdown) or BV-410 is open while stack pressure decays after a trip, so air or exhaust flows back from Vent Out / Cathode Out into the cathode outlet line",
+        "consequences": "Air enters the cathode outlet line, which also carries anode exhaust routed internally from the anode to the cathode. Air can then migrate through the internal anode-to-cathode path into the anode while residual H2/CO is still present. A flammable mixture can form at about 650 °C, with internal deflagration and stack damage, and the Ni anode oxidises. (Row 16 wrongly says air enters the anode directly.)",
+        "safeguards": [
+          "BPCS shutdown sequence",
+          "BV-400 / BV-410 fail-closed on utility loss"
+        ],
+        "recommendations": [
+          "Provide an inert gas (N2) purge of the anode and cathode on shutdown, before BV-160 vents to atmosphere",
+          "Install a check valve or flame arrester on the Vent Out line downstream of BV-160 / PSV-160",
+          "Review the shutdown sequence so the stack is not left open to Vent Out / Cathode Out while unpurged"
+        ],
+        "FI": 2,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#21"
+        ],
+        "judge_mean": 2.0
+      },
+      {
+        "deviation": "Reverse Flow | Vent line into stack",
+        "causes": "BV-160 opens on shutdown or utility failure while stack pressure is low, letting air back in from Vent Out",
+        "consequences": "Air enters the anode side. A flammable H2/air mixture forms at high temperature and can explode inside the stack. The Ni anode oxidises.",
+        "safeguards": [
+          "BPCS shutdown sequence"
+        ],
+        "recommendations": [
+          "Provide an inert gas (N2) purge of the anode on shutdown",
+          "Install a check valve or flame arrester on the vent line"
+        ],
+        "FI": 2,
+        "SI": 4,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_02"
+        ],
+        "row_ids": [
+          "run_02#16"
+        ],
+        "judge_mean": 3.0
+      },
+      {
+        "deviation": "Reverse Power | DC-Power output",
+        "causes": "Back-feed from battery/other parallel modules into a weak or tripped stack",
+        "consequences": "Cells are driven in reverse (electrolysis), causing anode/cathode corrosion and stack damage.",
+        "safeguards": [
+          "IE-300/II-300 current indication"
+        ],
+        "recommendations": [
+          "Provide blocking diode/reverse current protection on DC output"
+        ],
+        "FI": 2,
+        "SI": 3,
+        "run_count": 1,
+        "n_runs": 3,
+        "runs": [
+          "run_03"
+        ],
+        "row_ids": [
+          "run_03#21"
+        ],
+        "judge_mean": 4.0
+      }
+    ]
+  }
+}
