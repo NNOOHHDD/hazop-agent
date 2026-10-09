@@ -6,7 +6,7 @@ A domain-specific AI agent that drafts a **HAZOP** (Hazard and Operability Study
 
 ## Why
 
-In plant engineering (chemical and energy processes, nuclear and fusion facilities included) a HAZOP is mandatory, and it is expensive: a team of several specialists works through every node of every P&ID, guideword by guideword, often for weeks.
+In process plants, HAZOP is one of the most widely used hazard identification methods, and it is expensive: a team of several specialists works through every node of every P&ID, guideword by guideword, often for weeks.
 
 Much of that effort goes into items that look alike from project to project: the same guidewords, the same deviations, the same "control valve fails closed -> loss of flow" scenarios. The idea behind this repository:
 
@@ -167,6 +167,12 @@ The MCFC example is based on:
 
 - P&ID figure ([examples/mcfc/pid.jpg](examples/mcfc/pid.jpg)): Reproduced from Ahn et al. (2019), © 2019 Hydrogen Energy Publications LLC, published by Elsevier, with permission of the corresponding author.
 - Reference worksheet ([examples/mcfc/reference_worksheet.csv](examples/mcfc/reference_worksheet.csv)): Restructured from Ahn et al. (2019).
+
+## Authorship and tools
+
+The code and documents in this repository were written with an AI coding
+assistant (Claude Code) under my direction. I reviewed the results against the
+published reference worksheet before publishing.
 
 ## License
 
